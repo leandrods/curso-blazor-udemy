@@ -1,4 +1,4 @@
-﻿namespace Peliculas.Shared
+﻿namespace Peliculas.Shared.Entidades
 {
     public class Pelicula
     {

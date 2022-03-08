@@ -1,4 +1,4 @@
-﻿using Peliculas.Shared;
+﻿using Peliculas.Shared.Entidades;
 
 namespace Peliculas.Client.Repositorios
 {
