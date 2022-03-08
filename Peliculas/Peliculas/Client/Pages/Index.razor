@@ -1,0 +1,12 @@
+﻿@page "/"
+
+@using Peliculas.Client.Repositorios
+@using Peliculas.Shared
+
+@inject IRepositorio repositorio
+
+<div>
+    <h3>Películas</h3>
+    <ListadoPeliculas Peliculas="repositorio.ObtenerPeliculas()" />
+</div>
+

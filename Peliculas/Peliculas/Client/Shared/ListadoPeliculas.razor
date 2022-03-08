@@ -1,0 +1,27 @@
+﻿@using Peliculas.Client.Helpers
+@using Peliculas.Shared
+@inject IJSRuntime js
+
+<div style="display: flex; flex-wrap: wrap; align-items: center;">
+    <ListadoGenerico Listado="Peliculas">
+        <HayRegistros>
+            <PeliculaIndividual Pelicula="context" EliminarPelicula="EliminarPeliculaPadre" />
+        </HayRegistros>
+    </ListadoGenerico>
+</div>
+
+
+@code {
+    [Parameter]
+    public List<Pelicula> Peliculas { get; set; }
+
+    async Task EliminarPeliculaPadre(Pelicula pelicula)
+    {
+        var confirmado = await js.Confirm($"Desea borrar la pelicula { pelicula.Titulo }");
+        if (confirmado)
+        {
+            Peliculas.Remove(pelicula);
+            Console.WriteLine($"Pelicula eliminada { pelicula.Titulo}");
+        }
+    }
+}

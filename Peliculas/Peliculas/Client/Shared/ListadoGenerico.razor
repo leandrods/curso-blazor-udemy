@@ -1,0 +1,31 @@
+﻿@typeparam T
+
+@if (Listado == null)
+{
+    @if (Cargando == null)
+    {
+        <text>Cargando por defecto</text>    
+    }
+    else
+    {
+        @Cargando
+    }
+}
+else if (Listado.Count == 0)
+{
+    @if (NoHayRegistros == null)
+    {
+        <text>No hay registros por defecto</text>    
+    }
+    else
+    {
+        @NoHayRegistros
+    }
+}
+else
+{
+    foreach (var elemento in Listado)
+    {
+        @HayRegistros(elemento)
+    }
+}
