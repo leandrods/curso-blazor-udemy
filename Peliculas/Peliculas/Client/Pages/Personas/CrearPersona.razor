@@ -1,3 +1,15 @@
 ﻿@page "/personas/crear"
+@using Peliculas.Shared.Entidades
 
 <h3>Crear persona</h3>
+
+<FormularioPersonas OnValidSubmit="Crear" Persona="persona" />
+
+@code {
+    private Persona persona = new Persona();
+
+    private void Crear()
+    {
+        Console.WriteLine("Crear persona");
+    }
+}

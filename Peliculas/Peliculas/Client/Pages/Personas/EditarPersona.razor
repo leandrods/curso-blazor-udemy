@@ -1,7 +1,28 @@
 ﻿@page "/personas/editar/{PersonaId:int}"
+@using Peliculas.Shared.Entidades
 
 <h3>Editar persona</h3>
 
+<FormularioPersonas OnValidSubmit="Editar" Persona="Persona" />
+
 @code {
     [Parameter] public int PersonaId { get; set; }
+    Persona Persona = new Persona();
+
+    protected override void OnInitialized()
+    {
+        Persona = new Persona()
+        {
+            Id = PersonaId,
+            Nombre = "Leandro",
+            FechaNacimiento = DateTime.Today
+        };
+
+        base.OnInitialized();
+    }
+
+    private void Editar()
+    {
+        Console.WriteLine("Editando persona");
+    }
 }
