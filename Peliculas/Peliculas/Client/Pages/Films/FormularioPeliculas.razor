@@ -1,0 +1,52 @@
+﻿@using Peliculas.Shared.Entidades
+
+<EditForm Model="Pelicula" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label>Titulo:</label>
+        <div>
+            <InputText class="form-control" @bind-Value="@Pelicula.Titulo" />
+            <ValidationMessage For="@(() => Pelicula.Titulo)"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>En cartelera:</label>
+        <div>
+            <InputCheckbox @bind-Value="@Pelicula.EnCartelera" />
+            <ValidationMessage For="@(() => Pelicula.EnCartelera)"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Trailer:</label>
+        <div>
+            <InputText class="form-control" @bind-Value="@Pelicula.Trailer" />
+            <ValidationMessage For="@(() => Pelicula.Trailer)"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Fecha de lanzamiento:</label>
+        <div>
+            <InputDate class="form-control" @bind-Value="@Pelicula.Lanzamiento" />
+            <ValidationMessage For="@(() => Pelicula.Lanzamiento)"/>
+        </div>
+    </div>
+    <div class="form-group form-markdown">        
+        <InputMarkdown @bind-Value="@Pelicula.Resumen" For="@(() => Pelicula.Resumen)" Label="Resumen" />
+    </div>
+    <div class="form-group">
+        <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenURL="" />
+    </div>
+
+    <button class="btn btn-success" type="submit">Guardar</button>
+</EditForm>
+
+@code {
+    [Parameter] public Pelicula Pelicula { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    private void ImagenSeleccionada(string imagenBase64)
+    {
+        Pelicula.Poster = imagenBase64;
+    }
+}

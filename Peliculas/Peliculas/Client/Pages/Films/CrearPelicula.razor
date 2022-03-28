@@ -1,11 +1,14 @@
 ﻿@page "/peliculas/crear"
+@using Peliculas.Shared.Entidades
 @inject NavigationManager navigationManager
 
 <h3>Crear película</h3>
 
-<button @onclick="Crear">Guardar película</button>
+<FormularioPeliculas Pelicula="Pelicula" OnValidSubmit="Crear" />
 
 @code {
+    private Pelicula Pelicula = new Pelicula();
+
     void Crear()
     {
         navigationManager.NavigateTo("peliculas");
