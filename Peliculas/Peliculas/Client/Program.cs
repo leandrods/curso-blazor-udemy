@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Peliculas.Client;
+using Peliculas.Client.Helpers;
 using Peliculas.Client.Repositorios;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -15,5 +16,6 @@ await builder.Build().RunAsync();
 
 void ConfigureServices(IServiceCollection services)
 {
-    services.AddSingleton<IRepositorio, Repositorio>();
+    services.AddScoped<IRepositorio, Repositorio>();
+    services.AddScoped<IMostrarMensajes, MostrarMensajes>();
 }

@@ -16,7 +16,7 @@ namespace Peliculas.Shared.Entidades
         public string Trailer { get; set; }
 
         [Required]
-        public DateOnly? Lanzamiento { get; set; }
+        public DateTime? Lanzamiento { get; set; }
 
         public string Poster { get; set; }
 
@@ -38,5 +38,8 @@ namespace Peliculas.Shared.Entidades
                 }
             }
         }
+
+        public List<GeneroPelicula> GenerosPelicula { get; set; }
+        public List<PeliculaActor> PeliculaActor { get; set; }
     }
 }

@@ -15,5 +15,7 @@ namespace Peliculas.Shared.Entidades
 
         [Required]
         public DateTime? FechaNacimiento { get; set; }
+
+        public List<PeliculaActor> PeliculaActor { get; set; }
     }
 }
